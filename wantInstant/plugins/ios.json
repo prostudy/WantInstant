@@ -69,6 +69,13 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "com.phonegap.plugins.PushPlugin": {
+            "PACKAGE_NAME": "com.ionicframework.wantinstant587865"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "273537714938",
+            "PACKAGE_NAME": "com.ionicframework.wantinstant587865"
         }
     },
     "dependent_plugins": {}

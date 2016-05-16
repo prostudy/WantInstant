@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var WantInstant = angular.module('WantInstant', ['ionic','ServerReqModule','Constants'])
+var WantInstant = angular.module('WantInstant', ['ionic','ngCordova','ionic.service.core','ServerReqModule','Constants'])
 
 WantInstant.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -20,6 +20,15 @@ WantInstant.run(function($ionicPlatform) {
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    
+    var push = new Ionic.Push({
+        "debug": true
+      });
+
+    push.register(function(token) {
+        console.log("My Device token:",token.token);
+        push.saveToken(token);  // persist the token in the Ionic Platform
+      });
   });
 })
 
