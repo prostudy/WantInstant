@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+var WantInstant = angular.module('WantInstant', ['ionic','ServerReqModule','Constants'])
 
-.run(function($ionicPlatform) {
+WantInstant.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -22,3 +22,31 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+WantInstant.config(function($stateProvider, $urlRouterProvider) {
+	
+  $stateProvider
+    /*.state('app', {
+    url: '/app',
+    abstract: true,
+    templateUrl: 'templates/menu.html',
+    controller: 'AppCtrl'
+  })*/
+
+  .state('home', {
+	  url: '/home',
+	  templateUrl: 'templates/home.html',
+      controller: 'AppCtrl'
+      //cache: false
+  })
+  
+  .state('detail', {
+	  url: '/detail',
+	  templateUrl: 'templates/detail.html',
+      controller: 'DetailCtrl'
+      //cache: false
+  });
+  
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/home');
+});
